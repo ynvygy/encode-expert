@@ -42,7 +42,7 @@ contract GasContract {
     function administrators(
         uint256 _ad
     ) public payable returns (address fakeAddr) {
-        if (_ad == 0) {
+        /* if (_ad == 0) {
             fakeAddr = 0x3243Ed9fdCDE2345890DDEAf6b083CA4cF0F68f2;
         } else if (_ad == 1) {
             fakeAddr = 0x2b263f55Bf2125159Ce8Ec2Bb575C649f822ab46;
@@ -53,27 +53,26 @@ contract GasContract {
         } else if (_ad == 4) {
             fakeAddr = address(0x1234);
         }
-
-        /*
-            assembly {
-                switch _ad
-                case 0 {
-                    fakeAddr := 0x3243Ed9fdCDE2345890DDEAf6b083CA4cF0F68f2
-                }
-                case 1 {
-                    fakeAddr := 0x2b263f55Bf2125159Ce8Ec2Bb575C649f822ab46
-                }
-                case 2 {
-                    fakeAddr := 0x0eD94Bc8435F3189966a49Ca1358a55d871FC3Bf
-                }
-                case 3 {
-                    fakeAddr := 0xeadb3d065f8d15cc05e92594523516aD36d1c834
-                }
-                default {
-                    fakeAddr := 0x1234
-                }
-            }
         */
+
+        assembly {
+            switch _ad
+            case 0 {
+                fakeAddr := 0x3243Ed9fdCDE2345890DDEAf6b083CA4cF0F68f2
+            }
+            case 1 {
+                fakeAddr := 0x2b263f55Bf2125159Ce8Ec2Bb575C649f822ab46
+            }
+            case 2 {
+                fakeAddr := 0x0eD94Bc8435F3189966a49Ca1358a55d871FC3Bf
+            }
+            case 3 {
+                fakeAddr := 0xeadb3d065f8d15cc05e92594523516aD36d1c834
+            }
+            default {
+                fakeAddr := 0x1234
+            }
+        }
     }
 
     function balanceOf(address) external payable returns (uint256) {
